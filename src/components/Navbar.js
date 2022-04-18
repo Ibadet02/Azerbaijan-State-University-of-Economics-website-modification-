@@ -54,11 +54,11 @@ export const Navbar=({myref})=>{
                     </div>
                     <div className={`form-icon-box ${isFormOpen?`open`:`closed`}`}>
                         <form className={`search ${isFormOpen?`open`:`closed`}`}>
-                            <input type={"text"} placeholder="Axtarış sözünü daxil edin" className={`${isFormOpen?`open`:`closed`}`}/>
+                            <input id="search-input" type={"text"} placeholder="Axtarış sözünü daxil edin" className={`${isFormOpen?`open`:`closed`}`}/>
                         </form>
-                        <div className="search-icon-box">
+                        <label htmlFor="search-input" className="search-icon-box">
                             <FaSearch fill="white" size={"25"} className="search-icon" onClick={()=>handleInputAnimation()} />
-                        </div>
+                        </label>
                     </div>
                 </div>
             </div>
