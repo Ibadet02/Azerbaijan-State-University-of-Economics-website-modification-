@@ -36,29 +36,33 @@ export const Navbar=({myref})=>{
     })
     return (
         <nav className="navbar" ref={myref}>
+            <div className="navbar-content">
             <div className="logo-box">
-                <strong>
-                    <a href="#"><span>AZƏRBAYCAN DÖVLƏT</span><span>İQTİSAD UNİVERSİTETİ</span></a>
-                </strong>
-            </div>
-            <div className="menu-box">
-                <div className="secondary-menu">
-                    <div className="secondary-links">
-                        {secondaryLinks}
-                    </div>
-                    <div className="languages"></div>
+                    <strong>
+                        <a href="#"><span>AZƏRBAYCAN DÖVLƏT</span><span>İQTİSAD UNİVERSİTETİ</span></a>
+                    </strong>
                 </div>
-                <div className="main-menu">
-                    <div className={`main-links ${isFormOpen?`closed`:`open`}`}>
-                        {mainLinks}
+                <div className="menu-box">
+                    <div className="secondary-menu">
+                        <div className="secondary-links">
+                            {secondaryLinks}
+                        </div>
+                        {/* <div className="languages"></div> */}
                     </div>
-                    <div className={`form-icon-box ${isFormOpen?`open`:`closed`}`}>
-                        <form className={`search ${isFormOpen?`open`:`closed`}`}>
-                            <input id="search-input" type={"text"} placeholder="Axtarış sözünü daxil edin" className={`${isFormOpen?`open`:`closed`}`}/>
-                        </form>
-                        <label htmlFor="search-input" className="search-icon-box">
-                            <FaSearch fill="white" size={"25"} className="search-icon" onClick={()=>handleInputAnimation()} />
-                        </label>
+                    <div className="main-menu">
+                        <div className={`main-links ${isFormOpen?`closed`:`open`}`}>
+                            {mainLinks}
+                        </div>
+                        {/* <div className={`form-icon-box ${isFormOpen?`open`:`closed`}`}> */}
+                            <div className={`form-div ${isFormOpen?`open`:`closed`}`}>
+                                <form className={`search`}>
+                                    <input id="search-input" type={"text"} placeholder="Axtarış sözünü daxil edin"/>
+                                </form>
+                            </div>
+                            <label htmlFor="search-input" className="search-icon-box">
+                                <FaSearch fill="white" size={"25"} className="search-icon" onClick={()=>handleInputAnimation()} />
+                            </label>
+                        {/* </div> */}
                     </div>
                 </div>
             </div>

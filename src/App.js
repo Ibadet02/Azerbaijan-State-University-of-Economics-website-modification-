@@ -8,7 +8,7 @@ import {Footer} from './components/Footer'
 function App() {
   const navRef=React.useRef(null)
   React.useEffect(()=>{
-    var lastScrollTop=0
+    let lastScrollTop=0
     window.addEventListener("scroll",()=>{
       var scrollTop=window.pageYOffset || document.documentElement.scrollTop
       if(scrollTop>lastScrollTop){
@@ -24,7 +24,8 @@ function App() {
     <div>
       <Navbar myref={navRef} />
       <div className='padding'>
-        <Info />
+        {/* <Info /> */}
+        {/* <Slidebar /> */}
       </div>
     </div>
   );

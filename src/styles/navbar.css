@@ -3,7 +3,14 @@
 }
 .navbar{
     width: 100%;
-    padding: 0px 120px;
+    display: flex;
+    justify-content: center;
+    height: 130px;
+    background: #00304A;
+}
+.navbar-content{
+    width: 1220px;
+    /* padding: 0px 120px; */
     height: 130px;
     background: red;
     display: flex;
@@ -14,6 +21,7 @@
     transition: top 300ms;
 }
 .logo-box{
+    align-self: flex-start;
     height: 100%;
     display: flex;
     align-items: center;
@@ -36,6 +44,7 @@
     justify-content: center;
 }
 .menu-box{
+    width: 830px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,71 +54,56 @@
     gap: 20px;
     /* align-items: center; */
 }
-.form-icon-box{
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    position: fixed;
+.form-div{
+    position: absolute;
     right: 120px;
-    width: 30px;
-    height: 35px;
-    transition: width var(--search-transition);
+    bottom: 0;
+    border-bottom: 3px solid #fff;
+    z-index: 150;
+    height: 32px;
+    overflow: hidden;
+    width: 0px;
+    transition: var(--search-transition);
 }
-.form-icon-box.open{
-    width: 500px;
+.form-div.open{
+    width: 547px;
 }
 .search{
-    right: 0;
-    position: absolute;
-    width: 0%;
-    right: 0;
-    height: 100%;
-    transition: width var(--search-transition);
+    margin: 0;
 }
-.search.open{
-    width: 100%;
-}
-.search input{
+.form-div input{
+    width: 522px;
+    padding: 0 25px 0 0;
+    font: italic 15px/15px 'Georgia',sans-serif;
+    color: #fff;
     border: none;
-    border-bottom: red;
-    width: 0%;
+    background: none;
+    padding-bottom: 13px;
     outline: none;
-    background: transparent;
-    height: 100%;
-    transition: width var(--search-transition);
-    position: relative;
-    caret-color: #fff;
-    padding: 0 30px 0 0;
-}
-.search input::before{
-    content: '';
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    background-color: #fff;
-}
-.search input::placeholder{
-    color: red;
-}
-.search input.open{
-    width: 100%;
 }
 .search-icon-box{
-    /* background-color: green; */
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    bottom: 3px;
+    background: #00304A;
+    height: 32px;
+    z-index: 200;
+    margin-left: 30px !important;
 }
 .search-icon{
-    z-index: 200;
+    position: relative;
+    right: 110px;
+    display: block;
+    text-indent: -9999px;
+    width: 19px;
+    height: 19px;
     cursor: pointer;
 }
 .main-links{
     display: flex;
-    gap: 30px;
-    margin-right: 50px;
+    /* gap: 30px; */
+    justify-content: space-between;
+    width: 830px;
     transition: opacity var(--search-transition);
 }
 .main-links.closed{
@@ -118,8 +112,6 @@
     user-select: none;
 }
 .main-links .m-link{
-    /* pointer-events: none; */
-    /* opacity: 0; */
     text-decoration: none;
     padding-top: 0;
     padding-bottom: 15px;
@@ -141,18 +133,38 @@
 .main-links .m-link:hover::before{
     transform: scale(1);
 }
-
 .secondary-menu{
     display: flex;
+    width: 100%;
 }
 .secondary-links{
+    width: 100%;
     display: flex;
-    gap: 15px;
+    /* gap: 15px; */
+    justify-content: space-between;
     margin-top: 10px;
 }
 .secondary-links a{
-    /* text-decoration: none; */
     color: #fff;
     font-size: .7em;
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 1477px){
+    .search-icon-box{
+        right: -10px;
+    }
+    .form-div{
+        right: 100px;
+    }
+}
+@media screen and (max-width: 1455px){
+    .navbar{
+        gap: 50px;
+    }
+}
+@media screen and (max-width: 1270px){
+    .navbar-content{
+        width: 1150px;
+    }
 }
