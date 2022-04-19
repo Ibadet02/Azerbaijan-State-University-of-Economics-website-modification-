@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import {Navbar} from './components/Navbar'
-import {Slidebar} from './components/Slidebar'
-import {Info} from './components/Info'
-import {News} from './components/News'
-import {Footer} from './components/Footer'
+import {Navbar} from './parent-components/Navbar'
+import {Slidebar} from './parent-components/Slidebar'
+import {Info} from './parent-components/Info'
+import {News} from './parent-components/News'
+import {Footer} from './parent-components/Footer'
 function App() {
   const navRef=React.useRef(null)
   React.useEffect(()=>{
@@ -24,7 +24,7 @@ function App() {
     <div>
       <Navbar myref={navRef} />
       <div className='padding'>
-        {/* <Info /> */}
+        <Info />
         {/* <Slidebar /> */}
       </div>
     </div>
