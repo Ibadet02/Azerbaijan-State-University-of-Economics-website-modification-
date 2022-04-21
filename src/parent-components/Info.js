@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/info.css'
+import '../parent-styles/info.css'
 export const Info=()=>{
     return (
         <section>
