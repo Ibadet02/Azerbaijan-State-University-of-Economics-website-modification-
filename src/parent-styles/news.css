@@ -1,0 +1,99 @@
+.news{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    background-color: #f2f2f2;
+}
+.news-wrapper{
+    width: 1220px;
+    display: flex;
+    flex-direction: column;
+}
+.news-content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+}
+.news-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.news-menu{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+.news-menu span{
+    cursor: pointer;
+    user-select: none;
+}
+.select-content{
+    display: flex;
+    gap: 20px;
+}
+.news-content{
+    display: flex;
+    flex-direction: column;
+}
+.breaking-news,.advertisement,.others{
+    display: flex;
+}
+.left-breaking-news,.right-breaking-news,.left-advertisement,.right-advertisement{
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+.left-breaking-news div,.right-breaking-news div,.left-advertisement div,.right-advertisement div{
+    flex: 1;
+}
+.left-advertisement div,.right-advertisement div{
+    padding: 60px 20px;
+    background-color: white;
+    border-bottom: 5px solid black;
+}
+.breaking-news{
+    transition: 300ms;
+    overflow: hidden;
+    height: 260px;
+}
+.breaking-news.close{
+    height: 0;
+}
+.advertisement{
+    display: flex;
+    gap: 10px;
+    transition: 300ms;
+    position: absolute;
+    bottom: 0px;
+}
+.advertisement.open{
+    bottom: 40px;
+}
+.others{
+    height: 200px;
+    background-color: rgba(255, 0, 0,.2);
+    z-index: 100;
+    transition: 300ms;
+}
+.others.news-close{
+    transform: translateY(190px);
+}
+@keyframes hide-news{
+    from{
+
+    }
+    to{
+        height: 0;
+    }
+}
+@keyframes appear-news{
+    from{
+
+    }
+    to{
+        
+    }
+}

@@ -3,7 +3,7 @@ import './App.css';
 import {Navbar} from './parent-components/Navbar'
 import {Slidebar} from './parent-components/Slidebar'
 import {Info} from './parent-components/Info'
-// import {News} from './parent-components/News'
+import {News} from './parent-components/News'
 // import {Footer} from './parent-components/Footer'
 function App() {
   const navRef=React.useRef(null)
@@ -37,6 +37,7 @@ function App() {
       <div className='margin'>
         <Slidebar />
         <Info />
+        <News />
       </div>
     </div>
   );

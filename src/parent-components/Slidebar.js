@@ -9,13 +9,21 @@ import s5 from '../assets/slayd_kollaj17-tile.jpg'
 import s6 from '../assets/UNEC-banner-1280x436-sayt-ucun-1.jpg'
 import s7 from '../assets/YENI-KORPUS-ACILIS-tile.jpg'
 export const Slidebar=()=>{
+    const [currentImage,setCurrentImage]=React.useState(0)
     const slide_image_sources=[s1,s2,s3,s4,s5,s6,s7]
-    const currentSlide=()=>{
-        
+    const currentSlide=(n)=>{
+        setCurrentImage(prev=>{
+            let copyPrev=prev
+            copyPrev=n==="next"?copyPrev+1:n==="prev"?copyPrev-1:n
+            return copyPrev>slide_image_sources.length-1?0:copyPrev<0?slide_image_sources.length-1:copyPrev
+        })
     }
+    React.useEffect(()=>{
+        setInterval(currentSlide("next"),200)
+    },[])
     const imgs=slide_image_sources.map((el,i)=>{
         return (
-        <div className={`single-slide-img-wrapper slide-img-${i+1} fadein`}>
+        <div key={i} className={`single-slide-img-wrapper slide-img-${i+1} fadein`}>
             <div className="txt-link">
                 <div className="txt"></div>
                 <div className="link"></div>
@@ -28,12 +36,12 @@ export const Slidebar=()=>{
         <section className="slidebar">
             <div className="slide-wrapper">
                 <div className="all-slide-img-wrapper">
-                    {imgs}
+                    {imgs[currentImage]}
                 </div>
-                <span className="prev"><FaAngleLeft icon="fa-solid fa-angle-left" /></span>
-                <span className="next"><FaAngleRight icon="fa-solid fa-angle-right" /></span>
+                <span onClick={()=>currentSlide("prev")} className="prev"><FaAngleLeft icon="fa-solid fa-angle-left" /></span>
+                <span onClick={()=>currentSlide("next")} className="next"><FaAngleRight icon="fa-solid fa-angle-right" /></span>
                 <div className="slider-dots">
-                    {slide_image_sources.map((_,i)=><span onClick={()=>currentSlide(i)} className="dot"></span>)}
+                    {slide_image_sources.map((_,i)=><span key={i} onClick={()=>currentSlide(i)} className={`dot ${i===currentImage?`active`:``}`}></span>)}
                 </div>
             </div>
         </section>
