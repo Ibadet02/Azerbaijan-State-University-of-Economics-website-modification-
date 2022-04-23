@@ -1,24 +1,34 @@
+:root{
+    --transition: 600ms;
+}
 .news{
     display: flex;
     justify-content: center;
     margin-top: 50px;
     background-color: #f2f2f2;
+    height: 700px;
+    width: 100%;
 }
 .news-wrapper{
     width: 1220px;
     display: flex;
     flex-direction: column;
+    height: fit-content;
 }
 .news-content{
+    width: 100%;
+    height: max-content;
     display: flex;
     flex-direction: column;
     gap: 40px;
     position: relative;
+    flex: 1;
 }
 .news-wrapper{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 100%;
 }
 .news-menu{
     display: flex;
@@ -34,9 +44,8 @@
     display: flex;
     gap: 20px;
 }
-.news-content{
-    display: flex;
-    flex-direction: column;
+.breaking-news img{
+    width: 100%;
 }
 .breaking-news,.advertisement,.others{
     display: flex;
@@ -55,45 +64,168 @@
     border-bottom: 5px solid black;
 }
 .breaking-news{
-    transition: 300ms;
-    overflow: hidden;
-    height: 260px;
-}
-.breaking-news.close{
-    height: 0;
-}
-.advertisement{
     display: flex;
     gap: 10px;
-    transition: 300ms;
+    transition: var(--transition);
+    overflow: hidden;
+    max-height: 700px;
+}
+.breaking-news.close{
+    max-height: 0;
+}
+.advertisement{
+    z-index: 50;
+    display: flex;
+    /* display: none; */
+    gap: 10px;
+    transition: var(--transition);
     position: absolute;
-    bottom: 0px;
+    bottom: 170px;
 }
 .advertisement.open{
-    bottom: 40px;
+    bottom: 450px;
 }
 .others{
-    height: 200px;
-    background-color: rgba(255, 0, 0,.2);
+    background-color: #f2f2f2;
+    display: flex;
+    gap: 10px;
+    /* height: 350px; */
+    /* background-color: rgba(255, 0, 0,.2); */
     z-index: 100;
-    transition: 300ms;
+    transition: var(--transition);
+    position: absolute;
+    top: 280px;
+    width: 100%;
 }
 .others.news-close{
-    transform: translateY(190px);
+    top: 220px;
+    /* transform: translateY(190px); */
 }
-@keyframes hide-news{
-    from{
-
+.others-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 10px;
+}
+.others-grid img{
+    /* width: 115px; */
+    height: 100%;
+}
+.other-grid-element{
+    border: 8px solid white;
+}
+.other-grid-element:last-child a{
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+.other-grid-element a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.graduates{
+    width: 585px;
+    height: 100;
+    background-color: blue;
+}
+@media screen and (max-width: 1270px){
+    .news-wrapper{
+        width: 1150px;
     }
-    to{
-        height: 0;
+    .others{
+        top: 270px;
     }
 }
-@keyframes appear-news{
-    from{
-
+@media screen and (max-width:1181px){
+    .news-wrapper{
+        width: 950px;
     }
-    to{
-        
+    .news-content{
+        width: 100%;
+    }
+    .left-breaking-news,.right-breaking-news,.left-advertisement,.right-advertisement{
+        display: flex;
+        /* gap: 10px; */
+        flex: 1;
+    }
+    .advertisement{
+        bottom: 120px;
+    }
+    .advertisement.open{
+        bottom: 435px;
+    }
+    .others-grid{
+        /* width: 500px; */
+        height: 400px;
+    }
+    .others{
+        height: 350px;
+        top: 250px;
+    }
+    .others.news-close{
+        top: 235px;
+    }
+    .graduates{
+        width: 500px;
+    }
+    .others-grid{
+        display: grid;
+        grid-template-columns: repeat(3,230px);
+        grid-template-rows: 170px 170px;
+        gap: 10px;
+    }
+    .other-grid-element:not(:nth-child(3)) img{
+        width: 110px !important;
+    }
+}
+@media screen and (max-width:960px){
+    .news{
+        height: 1000px;
+    }
+    .news-wrapper{
+        width: 620px;
+    }
+    .advertisement{
+        overflow: hidden;
+        max-height: 0;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        /* display: none; */
+        gap: 10px;
+        transition: var(--transition);
+        position: absolute;
+        bottom: 0px;
+    }
+    .advertisement.open{
+        max-height: 800px;
+        bottom: 560px;
+    }
+    .breaking-news{
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+    .right-breaking-news,.left-breaking-news{
+        display: flex;
+        /* height: 50px; */
+    }
+    .right-breaking-news .news-2 a{
+        height: fit-content;
+    }
+    .breaking-news img{
+        height: 100%;
+    }
+    .news-content{
+        gap: 0px;
+    }
+    .others-grid{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
     }
 }

@@ -11,15 +11,27 @@ import others4 from '../assets/others4.jpg'
 import others5 from '../assets/others5.png'
 import others6 from '../assets/others6.png'
 export const News=()=>{
+    const breakingNewsRef=React.useRef(null)
+    const advertisementRef=React.useRef(null)
+    const moveOthers=React.useRef(null)
     const [isNewsOpen,setIsNewsOpen]=React.useState(true)
     const handleNewsOpen=(isOpen)=>{
         setIsNewsOpen(isOpen)
     }
+    React.useEffect(()=>{
+        // console.log(isNewsOpen)
+        var breakingHeight=breakingNewsRef.current.offsetHeight
+        var advertisementHeight=advertisementRef.current.offsetHeight
+        // moveOthers.current.style.transform=`translateY(${isNewsOpen?20:advertisementHeight+20}px`
+        window.addEventListener("resize",()=>{
+            // moveOthers.current.style.transform=`translateY(${isNewsOpen?20:advertisementHeight+20}px`
+        })
+    },[isNewsOpen])
     let others=
     [
         [others1,"The Journal of Economic Sciences: Theory and Practice № 2"],
         [others2,'“UNEC Ekspert” jurnalı № 9-10'],
-        [others3],
+        [others3,""],
         [others4,"“Azərbaycan Dövlət İqtisad Universitetinin Elmi Xəbərləri” № 4"],
         [others5,"ECONOMIC HERITAGE OF HEYDAR ALIYEV"],
         [others6,"Connect with rector"]
@@ -38,6 +50,16 @@ export const News=()=>{
         'UNEC-də ümummilli lider Heydər Əliyevin anadan olmasının 99-cu ildönümünə həsr olunan konfrans keçiriləcək',
         'Polşanın WSB Universitetinin Non-Erasmus mübadilə proqramına qəbul elan olunur'
     ]
+    others=others.map((el,i)=>{
+        return (
+            <div key={i} className="other-grid-element">
+                <a href="#">
+                    <img style={{width:el[1]===""?"100%":"155px"}} src={el[0]}/>
+                    <p style={{display:el[1]===""?"none":""}}>{el[1]}</p>
+                </a>
+            </div>
+        )
+    })
     advertisement=advertisement.map((el,i)=>{
         return (
             <div key={i}>
@@ -70,7 +92,7 @@ export const News=()=>{
                     </div>
                 </div>
                 <div className="news-content">
-                    <div className={`breaking-news ${isNewsOpen?`open`:`close`}`}>
+                    <div ref={breakingNewsRef} className={`breaking-news ${isNewsOpen?`open`:`close`}`}>
                         <div className="left-breaking-news">
                             {b_news[0]}
                             {b_news[1]}
@@ -80,7 +102,7 @@ export const News=()=>{
                             {b_news[3]}
                         </div>
                     </div>
-                    <div className={`advertisement ${isNewsOpen?`close`:`open`}`}>
+                    <div ref={advertisementRef} className={`advertisement ${isNewsOpen?`close`:`open`}`}>
                         <div className="left-advertisement">
                             {advertisement[0]}
                             {advertisement[1]}
@@ -90,8 +112,13 @@ export const News=()=>{
                             {advertisement[3]}
                         </div>
                     </div>
-                    <div className={`others ${isNewsOpen?`news-open`:`news-close`}`}>
+                    <div ref={moveOthers} className={`others ${isNewsOpen?`news-open`:`news-close`}`}>
+                        <div className="others-grid">
+                            {others}
+                        </div>
+                        <div className="graduates">
 
+                        </div>
                     </div>
                 </div>
             </div>
