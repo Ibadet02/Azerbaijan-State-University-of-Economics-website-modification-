@@ -4,7 +4,7 @@ import {Navbar} from './parent-components/Navbar'
 import {Slidebar} from './parent-components/Slidebar'
 import {Info} from './parent-components/Info'
 import {News} from './parent-components/News'
-// import {Footer} from './parent-components/Footer'
+import {Footer} from './parent-components/Footer'
 function App() {
   const navRef=React.useRef(null)
   const navContentRef=React.useRef(null)
@@ -39,6 +39,7 @@ function App() {
         <Info />
         <News />
       </div>
+      <Footer />
     </div>
   );
 }

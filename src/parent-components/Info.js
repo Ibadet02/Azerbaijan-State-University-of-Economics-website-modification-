@@ -37,9 +37,9 @@ export const Info=()=>{
         return (
         <div key={i} className={`right-img-link ${el[2]}`}>
             <div className="box-name">
-                <span>
-                    <a href="#">{el[0]}</a>
-                </span>
+                <a href="#">
+                    <span>{el[0]}</span>
+                </a>
             </div>
             <div className="box-img">
                 <img src={`${el[1]}`}/>

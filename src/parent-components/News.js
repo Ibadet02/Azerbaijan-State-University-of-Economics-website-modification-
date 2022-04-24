@@ -69,7 +69,7 @@ export const News=()=>{
     })
     b_news=b_news.map((el,i)=>{
         return (
-            <div key={i} className={`news-${i}`}>
+            <div key={i} className={`news-`}>
                 <a href="#">
                     <img src={el[0]} />
                 </a>

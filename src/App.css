@@ -4,6 +4,9 @@
 .padding{
     padding: 150px 120px 120px;
 }
+.margin{
+    margin: 0 3px;
+}
 body{
     overflow-x: hidden;
     overflow-y: scroll;
