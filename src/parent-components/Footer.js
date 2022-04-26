@@ -24,7 +24,7 @@ export const Footer=()=>{
                 </div>
                 <div className="bottom-footer">
                     <span>All rights reserved.© 2022 UNEC</span>
-                    <span>Site created by Ibadet</span>
+                    <span>Site created by <a target={"_blank"} href="https://github.com/Ibadet02">Ibadet</a></span>
                 </div>
             </div>
         </footer>
