@@ -34,11 +34,9 @@ function App() {
   return (
     <div className='wrapper'>
       <Navbar myref1={navRef} myref2={navContentRef} />
-      <div className='margin'>
         <Slidebar />
         <Info />
         <News />
-      </div>
       <Footer />
     </div>
   );

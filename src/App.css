@@ -2,13 +2,20 @@
     background-color: #f2f2f2;
 }
 .padding{
-    padding: 150px 120px 120px;
+    /* padding: 150px 120px 120px; */
+    padding-top: 150px;
 }
 .margin{
-    margin: 0 3px;
+    /* margin: 0 3px; */
 }
 body{
     overflow-x: hidden;
     overflow-y: scroll;
     height: fit-content;
+}
+#root{
+    width: 100%;
+}
+@media screen and (max-width:450px){
+    
 }
