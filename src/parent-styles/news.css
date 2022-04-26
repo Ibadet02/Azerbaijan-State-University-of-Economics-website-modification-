@@ -389,7 +389,7 @@
         flex-direction: column;
     }
     .other-grid-element{
-        font-size: 3vw;
+        font-size: 2vw;
     }
     .other-grid-element:nth-child(3) img{
         width: 100% !important;
